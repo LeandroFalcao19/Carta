@@ -1,0 +1,170 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 1rem;
+  background-color: hsla(327, 100%, 50%, 1);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1111 1111' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"),
+    radial-gradient(circle at 0% 99%, hsla(11, 100%, 50%, 1) 0%, transparent 67%),
+    radial-gradient(circle at 46% 94%, hsla(327, 100%, 50%, 1) 0%, transparent 81%),
+    radial-gradient(circle at 93% 95%, hsla(236, 100%, 23%, 1) 0%, transparent 66%),
+    radial-gradient(circle at 89% 8%, hsla(206, 100%, 9%, 1) 0%, transparent 150%);
+  background-blend-mode: overlay, normal, normal, normal, normal;
+}
+
+.container {
+  perspective: 1500px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.envelope {
+  width: 100%;
+  aspect-ratio: 5 / 3;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s ease;
+  cursor: pointer;
+}
+
+.back,
+.front {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border: 2px solid #8b5e3c;
+  border-radius: 10px;
+  backface-visibility: hidden;
+}
+
+.back {
+  background: #d9c5aa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back .info {
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 1rem;
+  color: #5a3e28;
+}
+
+.front {
+  background: #fff;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding-top: 2rem;
+  overflow: hidden;
+}
+
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: #d9c5aa;
+  transform-origin: top;
+  transition: transform 1s ease;
+  z-index: 2;
+  border-bottom: 2px solid #8b5e3c;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.letter {
+  padding: 1rem;
+  font-family: 'Georgia', serif;
+  font-size: 0.9rem;
+  color: #333;
+  background: #fffdf8;
+  z-index: 1;
+}
+
+.selo {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle, #d33, #922);
+  color: white;
+  font-size: 1.2rem;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 10%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  font-family: serif;
+}
+
+.boloL,
+.boloD {
+  width: 80px;
+  height: 80px;
+  margin: 1rem auto;
+}
+
+.parabens {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1rem auto;
+}
+
+.cima {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.f1,
+.f2,
+.f3,
+.f4 {
+  width: 120px;
+  height: 120px;
+  margin: 0.5rem;
+}
+
+/* 🔽 Responsividade */
+@media (max-width: 768px) {
+  .envelope {
+    aspect-ratio: 4 / 3;
+  }
+
+  .selo {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+    line-height: 30px;
+  }
+
+  .boloL,
+  .f1,
+  .f2,
+  .f3,
+  .f4 {
+    width: 90px;
+    height: 90px;
+  }
+
+  .boloD {
+    width: 90px;
+    height: 90px;
+    right: 50%;
+    left: 50%;
+    display: flex;
+  }
+
+  .parabens {
+    font-size: 1.2rem;
+  }
+}
